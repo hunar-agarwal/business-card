@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-image="imageTargetSrc: targets.mind; maxTrack: 2;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      
+      <a-assets>
+        <a-asset-item id="Duolingo Owl" src="duolingo.glb"></a-asset-item>
+         <a-asset-item id="Mr Pringles" src="pringles.glb"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model id="Duolingo Owl" look-at="#Mr Pringles" rotation="0 0 0" position="0 0 0.1" scale="0.9 0.9 0.9" src="#Duolingo Owl"></a-gltf-model>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model id="Mr Pringles" look-at="[camera]" rotation="0 0 0" position="0 0 0.1" scale="0.9 0.9 0.9" src="#Mr Pringles"></a-gltf-model>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
